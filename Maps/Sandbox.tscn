@@ -1,0 +1,82 @@
+[gd_scene load_steps=18 format=3 uid="uid://3ak6xirmq5hx"]
+
+[ext_resource type="Texture2D" uid="uid://dhooqssynnuft" path="res://Assets/Textures/Grass/Grass_05-128x128.png" id="1_2udjy"]
+[ext_resource type="PackedScene" uid="uid://bvffelp5cfn2e" path="res://Assets/Nature/Pine_5.gltf" id="2_k5y02"]
+[ext_resource type="PackedScene" uid="uid://fhx1i70lc8pv" path="res://Assets/Nature/Pine_4.gltf" id="3_hqr22"]
+[ext_resource type="PackedScene" uid="uid://bluufe6oqal6y" path="res://Assets/Nature/Pine_3.gltf" id="4_hdata"]
+[ext_resource type="PackedScene" uid="uid://c6eabnc6t4vcm" path="res://Assets/Nature/Pine_2.gltf" id="5_ki8gg"]
+[ext_resource type="PackedScene" uid="uid://46hm0kx44mtl" path="res://Assets/Nature/Petal_5.gltf" id="6_0gej8"]
+[ext_resource type="PackedScene" uid="uid://co8ytobeqwo3j" path="res://Assets/Nature/Bush_Common.gltf" id="7_uhgr8"]
+[ext_resource type="PackedScene" uid="uid://c1qt2gv0wnmg5" path="res://Assets/Nature/Bush_Common_Flowers.gltf" id="8_5fhjp"]
+[ext_resource type="PackedScene" uid="uid://bjkw765pnhqpl" path="res://Assets/Nature/CommonTree_1.gltf" id="9_b4imw"]
+[ext_resource type="PackedScene" uid="uid://bvxucmpp43y1g" path="res://Assets/Nature/CommonTree_2.gltf" id="10_cdl8r"]
+[ext_resource type="PackedScene" uid="uid://ci824hqicd8wr" path="res://Assets/Nature/Flower_3_Group.gltf" id="11_s5b8p"]
+[ext_resource type="PackedScene" uid="uid://b143mprcim8f7" path="res://Assets/Nature/Grass_Common_Short.gltf" id="12_woi18"]
+[ext_resource type="PackedScene" uid="uid://bqivv0f6xb33" path="res://Assets/Nature/Grass_Common_Tall.gltf" id="13_6mvhr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3piot"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_be43b"]
+sky_material = SubResource("ProceduralSkyMaterial_3piot")
+
+[sub_resource type="Environment" id="Environment_xx0cl"]
+background_mode = 2
+sky = SubResource("Sky_be43b")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogcw0"]
+albedo_texture = ExtResource("1_2udjy")
+uv1_scale = Vector3(60, 60, 60)
+
+[node name="Sandbox" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xx0cl")
+
+[node name="Pine_52" parent="." instance=ExtResource("2_k5y02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6208, 0, -8.59227)
+
+[node name="Pine_42" parent="." instance=ExtResource("3_hqr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.028, 0, 15.2427)
+
+[node name="Pine_32" parent="." instance=ExtResource("4_hdata")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97904, 0, 17.4134)
+
+[node name="Pine_22" parent="." instance=ExtResource("5_ki8gg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70847, 0, 14.3844)
+
+[node name="Petal_52" parent="." instance=ExtResource("6_0gej8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6918, 0, -8.06279)
+
+[node name="Bush_Common2" parent="." instance=ExtResource("7_uhgr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4208, 0, -6.52069)
+
+[node name="Bush_Common_Flowers2" parent="." instance=ExtResource("8_5fhjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65304, 0, 16.2763)
+
+[node name="CommonTree_12" parent="." instance=ExtResource("9_b4imw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1117, 0, -1.66359)
+
+[node name="CommonTree_22" parent="." instance=ExtResource("10_cdl8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3589, 0, 2.46201)
+
+[node name="Flower_3_Group2" parent="." instance=ExtResource("11_s5b8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4442, 0, 4.00527)
+
+[node name="Grass_Common_Short2" parent="." instance=ExtResource("12_woi18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27665, 0, 3.79071)
+
+[node name="Grass_Common_Tall2" parent="." instance=ExtResource("13_6mvhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642651, 0, 3.13145)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_ogcw0")
