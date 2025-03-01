@@ -40,6 +40,12 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xx0cl")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_ogcw0")
+
 [node name="Pine_52" parent="." instance=ExtResource("2_k5y02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6208, 0, -8.59227)
 
@@ -75,8 +81,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27665, 0, 3.79071)
 
 [node name="Grass_Common_Tall2" parent="." instance=ExtResource("13_6mvhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642651, 0, 3.13145)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(200, 1, 200)
-material = SubResource("StandardMaterial3D_ogcw0")
