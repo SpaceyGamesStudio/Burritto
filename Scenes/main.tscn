@@ -1,18 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbd3qeg6qalwn"]
+[gd_scene load_steps=3 format=3 uid="uid://bbd3qeg6qalwn"]
 
 [ext_resource type="PackedScene" uid="uid://3ak6xirmq5hx" path="res://Maps/Sandbox.tscn" id="1_himn8"]
 [ext_resource type="PackedScene" uid="uid://ekisojj6yo6r" path="res://Player/Player.tscn" id="2_5rvg1"]
-[ext_resource type="Script" path="res://Player/player.gd" id="3_b32o5"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Sandbox" parent="." instance=ExtResource("1_himn8")]
 
 [node name="Player" parent="." instance=ExtResource("2_5rvg1")]
-script = ExtResource("3_b32o5")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 11, 6)
-projection = 1
-fov = 50.0
-size = 15.0
+transform = Transform3D(-0.00357796, 1.56396e-10, 0.999994, 0, 1, -1.16415e-10, -0.999994, 0, -0.00357796, 0, 0, 0)
