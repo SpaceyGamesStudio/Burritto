@@ -17,9 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/window_width_override=576
-window/size/window_height_override=324
-window/stretch/mode="viewport"
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [filesystem]
 
@@ -60,3 +59,27 @@ jump={
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+
+[shader_globals]
+
+diffuse_curve={
+"type": "sampler2D",
+"value": ""
+}
+fresnel_smoothness={
+"type": "float",
+"value": 0.05
+}
+outline_color={
+"type": "color",
+"value": Color(0, 0, 0, 1)
+}
+outline_width={
+"type": "int",
+"value": 4
+}
+specular_smoothness={
+"type": "float",
+"value": 0.05
+}
