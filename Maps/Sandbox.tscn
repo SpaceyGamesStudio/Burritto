@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://3ak6xirmq5hx"]
+[gd_scene load_steps=21 format=3 uid="uid://3ak6xirmq5hx"]
 
+[ext_resource type="Texture2D" uid="uid://6cb6fyp02b8n" path="res://Assets/Textures/Prototype/Dark/texture_01.png" id="1_p1p3e"]
 [ext_resource type="PackedScene" uid="uid://bl0rfrgl05wsy" path="res://Assets/Nature/Pine_5.gltf" id="2_k5y02"]
 [ext_resource type="PackedScene" uid="uid://ds7jitdigg1se" path="res://Assets/Nature/Pine_4.gltf" id="3_hqr22"]
 [ext_resource type="PackedScene" uid="uid://b6ymu5k26v748" path="res://Assets/Nature/Pine_3.gltf" id="4_hdata"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cm8f2o2bjah1a" path="res://Assets/Nature/Grass_Common_Tall.gltf" id="13_6mvhr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3piot"]
+sky_top_color = Color(0.797075, 0.835216, 0.999999, 1)
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
@@ -25,8 +27,22 @@ background_mode = 2
 sky = SubResource("Sky_be43b")
 tonemap_mode = 2
 glow_enabled = true
+fog_aerial_perspective = 0.036
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrd5r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwiah"]
+albedo_texture = ExtResource("1_p1p3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs614"]
+albedo_texture = ExtResource("1_p1p3e")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eoh85"]
+material = SubResource("StandardMaterial3D_fs614")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7011c"]
+albedo_color = Color(0.356863, 0.619608, 0.215686, 1)
+uv1_scale = Vector3(60, 60, 60)
 
 [node name="Sandbox" type="Node3D"]
 
@@ -38,11 +54,16 @@ shadow_blur = 0.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xx0cl")
 
+[node name="CSGMesh3D" type="CSGMesh3D" parent="WorldEnvironment"]
+transform = Transform3D(0.675217, 0, 0.737619, 0, 1, 0, -0.737619, 0, 0.675217, -0.0053339, 1, -5.94418)
+material_override = SubResource("StandardMaterial3D_vwiah")
+mesh = SubResource("BoxMesh_eoh85")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(200, 1, 200)
-material = SubResource("ShaderMaterial_jrd5r")
+material = SubResource("StandardMaterial3D_7011c")
 
 [node name="Pine_52" parent="." instance=ExtResource("2_k5y02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6208, 0, -8.59227)
