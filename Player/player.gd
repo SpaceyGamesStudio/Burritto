@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,11 +16,12 @@ func _physics_process(delta: float) -> void:
 	movement()
 	move_and_slide()
 
-
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump"):
+	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	if event.is_action_pressed("attack"):
+		attack()
 
 func movement() -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -31,3 +32,6 @@ func movement() -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+func attack() -> void:
+	animation_player.play("2H_Melee_Attack_Slice")
