@@ -35,3 +35,4 @@ func movement() -> void:
 
 func attack() -> void:
 	animation_player.play("2H_Melee_Attack_Slice")
+	print("HELLO WORLD") # TODO FIXME
