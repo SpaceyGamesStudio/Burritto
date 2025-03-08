@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://3ak6xirmq5hx"]
+[gd_scene load_steps=19 format=3 uid="uid://3ak6xirmq5hx"]
 
+[ext_resource type="Texture2D" uid="uid://clk71bpnbps8u" path="res://Assets/Nature/Flowers.png" id="1_6kmnv"]
 [ext_resource type="PackedScene" uid="uid://bl0rfrgl05wsy" path="res://Assets/Nature/Pine_5.gltf" id="2_k5y02"]
 [ext_resource type="PackedScene" uid="uid://ds7jitdigg1se" path="res://Assets/Nature/Pine_4.gltf" id="3_hqr22"]
 [ext_resource type="PackedScene" uid="uid://b6ymu5k26v748" path="res://Assets/Nature/Pine_3.gltf" id="4_hdata"]
@@ -26,7 +27,10 @@ sky = SubResource("Sky_be43b")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrd5r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smn8q"]
+albedo_texture = ExtResource("1_6kmnv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4080"]
 
 [node name="Sandbox" type="Node3D"]
 
@@ -40,9 +44,10 @@ environment = SubResource("Environment_xx0cl")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_smn8q")
 use_collision = true
 size = Vector3(200, 1, 200)
-material = SubResource("ShaderMaterial_jrd5r")
+material = SubResource("ShaderMaterial_a4080")
 
 [node name="Pine_52" parent="." instance=ExtResource("2_k5y02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6208, 0, -8.59227)

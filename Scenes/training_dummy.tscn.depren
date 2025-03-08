@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ha2lry641poi"]
+
+[ext_resource type="Script" path="res://Player/Combat/todo_training_dummy.gd" id="1_4ojbb"]
+[ext_resource type="PackedScene" uid="uid://v40ievpwxwe6" path="res://Player/Combat/damage_text.tscn" id="2_br5md"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y5eyb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p45oo"]
+
+[node name="TrainingDummy" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 3, 0, 0, 0, 0.4, 0, 1.5, 0)
+script = ExtResource("1_4ojbb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+layers = 2
+mesh = SubResource("BoxMesh_y5eyb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_p45oo")
+
+[node name="DamageText" parent="StaticBody3D" instance=ExtResource("2_br5md")]

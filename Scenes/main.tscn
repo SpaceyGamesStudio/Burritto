@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbd3qeg6qalwn"]
+[gd_scene load_steps=4 format=3 uid="uid://bbd3qeg6qalwn"]
 
 [ext_resource type="PackedScene" uid="uid://3ak6xirmq5hx" path="res://Maps/Sandbox.tscn" id="1_himn8"]
 [ext_resource type="PackedScene" uid="uid://ekisojj6yo6r" path="res://Player/Player.tscn" id="2_5rvg1"]
+[ext_resource type="PackedScene" uid="uid://ha2lry641poi" path="res://Scenes/training_dummy.tscn" id="3_7v5sy"]
 
 [node name="Main" type="Node3D"]
 
 [node name="Sandbox" parent="." instance=ExtResource("1_himn8")]
 
 [node name="Player" parent="." instance=ExtResource("2_5rvg1")]
-transform = Transform3D(-0.00357796, 1.56396e-10, 0.999994, 0, 1, -1.16415e-10, -0.999994, 0, -0.00357796, 0, 0, 0)
+up_direction = Vector3(0, -1, 0)
+
+[node name="TrainingDummy" parent="." instance=ExtResource("3_7v5sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184899, 0, -9.04167)

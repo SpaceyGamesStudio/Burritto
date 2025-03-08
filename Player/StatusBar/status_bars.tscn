@@ -1,0 +1,197 @@
+[gd_scene load_steps=25 format=3 uid="uid://b7h8puki4acx4"]
+
+[ext_resource type="Shader" uid="uid://d0cqyja02uipw" path="res://Player/StatusBar/hp_bar.gdshader" id="1_ldjev"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yu6o4"]
+
+[sub_resource type="Environment" id="Environment_ygse2"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rl8bw"]
+noise_type = 2
+seed = 3
+frequency = 0.1504
+fractal_type = 0
+fractal_weighted_strength = 0.23
+cellular_jitter = 2.0
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nxi4y"]
+width = 64
+height = 64
+invert = true
+generate_mipmaps = false
+seamless_blend_skirt = 0.269
+normalize = false
+noise = SubResource("FastNoiseLite_rl8bw")
+
+[sub_resource type="Gradient" id="Gradient_lyoju"]
+colors = PackedColorArray(0.320137, 0.0644328, 0, 1, 0.741014, 0.0375787, 0.0208489, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5x2e4"]
+gradient = SubResource("Gradient_lyoju")
+repeat = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2l2e3"]
+shader = ExtResource("1_ldjev")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_nxi4y")
+shader_parameter/speed = 1.059
+shader_parameter/tone_mapping = SubResource("GradientTexture2D_5x2e4")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5yu06"]
+height = 32
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7qtxt"]
+noise_type = 0
+frequency = 0.0294
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h7ixw"]
+width = 64
+height = 64
+seamless = true
+seamless_blend_skirt = 0.237
+noise = SubResource("FastNoiseLite_7qtxt")
+
+[sub_resource type="Gradient" id="Gradient_5unm1"]
+offsets = PackedFloat32Array(0, 0.255618, 0.464888, 0.491573, 0.655899, 0.717697, 0.768258, 0.832865, 0.905899, 1)
+colors = PackedColorArray(0.788497, 0.281022, 0.188612, 1, 0.558384, 0.22034, 0.0838521, 1, 0.86921, 0.357589, 0.202005, 1, 0.674545, 0.222427, 0.118854, 1, 0.453365, 0.136285, 0.0695916, 1, 0.891451, 0.329204, 0.214856, 1, 0.405403, 0.119782, 0.0635722, 1, 0.986715, 0.74204, 0.688647, 1, 0.486491, 0.133349, 0.0736753, 1, 0.491553, 0.134119, 0.0750455, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oaock"]
+gradient = SubResource("Gradient_5unm1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lx5oh"]
+shader = ExtResource("1_ldjev")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_h7ixw")
+shader_parameter/speed = 0.576
+shader_parameter/tone_mapping = SubResource("GradientTexture2D_oaock")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b8nh6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_be3uv"]
+width = 32
+height = 32
+seamless = true
+seamless_blend_skirt = 0.211
+noise = SubResource("FastNoiseLite_b8nh6")
+
+[sub_resource type="Gradient" id="Gradient_u1rdi"]
+offsets = PackedFloat32Array(0, 0.157303, 0.195225, 0.301966, 0.667135, 0.938202, 1)
+colors = PackedColorArray(0.838215, 0.630578, 0, 1, 0.786539, 0.52229, 0.101963, 1, 1, 1, 1, 1, 0.859355, 0.710348, 0.149136, 1, 0.860799, 0.539185, 0, 1, 0.915628, 0.7483, 0.148768, 1, 0.927043, 0.759717, 0.24992, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1tes0"]
+gradient = SubResource("Gradient_u1rdi")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnkmg"]
+shader = ExtResource("1_ldjev")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_be3uv")
+shader_parameter/speed = 0.269
+shader_parameter/tone_mapping = SubResource("GradientTexture2D_1tes0")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rlccl"]
+frequency = 0.0214
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s5706"]
+width = 32
+height = 32
+seamless = true
+seamless_blend_skirt = 0.2
+noise = SubResource("FastNoiseLite_rlccl")
+
+[sub_resource type="Gradient" id="Gradient_c5a58"]
+offsets = PackedFloat32Array(0, 0.269663, 0.61236, 0.707865, 1)
+colors = PackedColorArray(5.0056e-06, 0.742925, 0.969669, 1, 0.294368, 0.431988, 0.848892, 1, 0.68399, 0.918761, 0.990415, 1, 0.135592, 0.404115, 0.845606, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vux20"]
+gradient = SubResource("Gradient_c5a58")
+fill_from = Vector2(0.901709, 0.974359)
+fill_to = Vector2(0.299145, 0.034188)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0toqw"]
+shader = ExtResource("1_ldjev")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_s5706")
+shader_parameter/speed = 0.38
+shader_parameter/tone_mapping = SubResource("GradientTexture2D_vux20")
+
+[node name="StatusBars" type="Node2D"]
+visible = false
+
+[node name="Przejsciowe_czarne_tlo" type="Node2D" parent="."]
+visible = false
+
+[node name="BoxContainer" type="BoxContainer" parent="Przejsciowe_czarne_tlo"]
+visible = false
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="Przejsciowe_czarne_tlo/BoxContainer"]
+modulate = Color(9, 5, 1, 1)
+layout_mode = 2
+texture_over = SubResource("NoiseTexture2D_yu6o4")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Przejsciowe_czarne_tlo/BoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Przejsciowe_czarne_tlo/BoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Przejsciowe_czarne_tlo"]
+environment = SubResource("Environment_ygse2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.664
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(256, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer"]
+visible = false
+material = SubResource("ShaderMaterial_2l2e3")
+layout_mode = 2
+value = 97.0
+rounded = true
+texture_under = SubResource("NoiseTexture2D_5yu06")
+tint_progress = Color(1, 0.105882, 0.4, 1)
+
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ManaBar" type="TextureProgressBar" parent="CanvasLayer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+visible = false
+material = SubResource("ShaderMaterial_lx5oh")
+layout_mode = 2
+value = 70.0
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+visible = false
+material = SubResource("ShaderMaterial_nnkmg")
+layout_mode = 2
+value = 70.0
+
+[node name="ProgressBar3" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+visible = false
+material = SubResource("ShaderMaterial_0toqw")
+layout_mode = 2
+value = 70.0
