@@ -1,6 +1,6 @@
 [gd_scene load_steps=106 format=4 uid="uid://ekisojj6yo6r"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_8gidb"]
+[ext_resource type="Script" uid="uid://inrfayxxems" path="res://Player/player.gd" id="1_8gidb"]
 [ext_resource type="Texture2D" uid="uid://v0kbjmxxlfwm" path="res://Assets/Kaykit/Characters/Knight_knight_texture.png" id="1_th4nb"]
 [ext_resource type="Script" uid="uid://bmm24kmmu55ba" path="res://Player/player_rotation.gd" id="2_oi0eq"]
 [ext_resource type="Shader" uid="uid://cjyqco6m42nij" path="res://Assets/Shaders/pixelart.gdshader" id="5_2lcdn"]
@@ -31752,7 +31752,6 @@ bone_idx = 10
 
 [node name="Round_Shield" type="BoneAttachment3D" parent="Model/Knight/Rig/Skeleton3D"]
 transform = Transform3D(0.999972, -0.000955675, 0.00723995, 0.000799964, 0.999767, 0.0215504, -0.00725905, -0.0215441, 0.999741, 0.253022, 0.982369, 0.867791)
-visible = false
 bone_name = "Round_Shield"
 bone_idx = 12
 
@@ -31846,3 +31845,6 @@ life_component = NodePath("LifeComponent")
 [node name="LifeComponent" type="Node3D" parent="Lifebar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 1.78)
 script = ExtResource("7_8lyq4")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
