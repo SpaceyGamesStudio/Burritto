@@ -22,4 +22,3 @@ func _process(delta: float) -> void:
 
 func on_current_life_change(value: int) -> void:
 	life_bar_next_value = value
-	print('lifebar', life_bar.value)

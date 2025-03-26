@@ -1,0 +1,70 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=16 format=3 uid="uid://csfanmnyf6w4e"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvbxc"]
+animation = &"Walking_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ntrkg"]
+animation = &"Running_A"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wcrom"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jvbxc")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_ntrkg")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8irbh"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e52v8"]
+animation = &"Running_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wyeul"]
+animation = &"Walking_A"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lbhp2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jvbxc"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ntrkg"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ia6sx"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b21cn"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ynljg"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6wxia"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_06r5c"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bcrrr"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[resource]
+states/FromWalkToRun/node = SubResource("AnimationNodeBlendSpace1D_wcrom")
+states/FromWalkToRun/position = Vector2(403, 291)
+states/Idle/node = SubResource("AnimationNodeAnimation_8irbh")
+states/Idle/position = Vector2(298, 114)
+states/Running_A/node = SubResource("AnimationNodeAnimation_e52v8")
+states/Running_A/position = Vector2(568, 223)
+states/Start/position = Vector2(172, 114)
+states/Walk/node = SubResource("AnimationNodeAnimation_wyeul")
+states/Walk/position = Vector2(240, 234)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_lbhp2"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_jvbxc"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_ntrkg"), "Running_A", "Idle", SubResource("AnimationNodeStateMachineTransition_ia6sx"), "Idle", "Running_A", SubResource("AnimationNodeStateMachineTransition_b21cn"), "Walk", "FromWalkToRun", SubResource("AnimationNodeStateMachineTransition_ynljg"), "FromWalkToRun", "Running_A", SubResource("AnimationNodeStateMachineTransition_6wxia"), "Running_A", "FromWalkToRun", SubResource("AnimationNodeStateMachineTransition_06r5c"), "FromWalkToRun", "Walk", SubResource("AnimationNodeStateMachineTransition_bcrrr")]
+graph_offset = Vector2(-115, 29)

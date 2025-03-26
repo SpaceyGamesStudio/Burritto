@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx52qro6dl0ic"]
+
+[ext_resource type="Script" uid="uid://chabwbq1apn8e" path="res://Enemy/Weapon/weapon.component.gd" id="1_xh3ly"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbua0"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xh3ly"]
+radius = 0.25
+height = 1.0
+
+[node name="Fist" type="Node3D"]
+script = ExtResource("1_xh3ly")
+
+[node name="Hitbox" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_vbua0")
+
+[node name="HitRange" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitRange"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.217662, 0, 0)
+shape = SubResource("CapsuleShape3D_xh3ly")
