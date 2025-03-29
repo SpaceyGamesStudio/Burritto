@@ -31846,6 +31846,7 @@ texture = SubResource("ViewportTexture_7xbhr")
 life_component = NodePath("LifeComponent")
 
 [node name="LifeComponent" type="Node3D" parent="Lifebar"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 1.78)
 script = ExtResource("7_8lyq4")
 

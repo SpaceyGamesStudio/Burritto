@@ -107,5 +107,8 @@ func on_exit_hit_range():
 	await animation_player.animation_finished
 	is_attacking = false
 
-func on_player_hit():
-	print("player hitted")
+func on_player_hit(weapon_resource: WeaponResource):
+	print("Player hit")
+	# This instead of calling player should deal damage to everything that has life component
+	PlayerGlobal.take_damage.emit(weapon_resource.damage)
+	

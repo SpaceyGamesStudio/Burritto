@@ -3,6 +3,7 @@ class_name WeaponComponent
 
 @export var skeleton: Skeleton3D;
 @export var animation_player: AnimationPlayer
+@export var weapon_resource: WeaponResource
 
 @onready var hitbox: Area3D  = %Hitbox
 @onready var hit_range: Area3D = %HitRange
@@ -11,7 +12,7 @@ class_name WeaponComponent
 
 signal player_entered_hit_range
 signal player_exited_hit_range
-signal player_hit
+signal player_hit(weapon: WeaponResource)
 
 var player_in_range = false
 
@@ -39,7 +40,7 @@ func on_hit(area: Area3D):
 	if(player_exited_range):
 		return
 
-	player_hit.emit()
+	player_hit.emit(weapon_resource)
 
 func is_player(body):
 	return body is Player

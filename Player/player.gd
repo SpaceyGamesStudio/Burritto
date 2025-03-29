@@ -6,6 +6,11 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var life_component: LifeComponent = %LifeComponent
+
+func _ready() -> void:
+	PlayerGlobal.take_damage.connect(on_damage_take)
+	life_component.died.connect(on_death)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -37,3 +42,9 @@ func movement() -> void:
 
 func attack() -> void:
 	animation_player.play("2H_Melee_Attack_Slice")
+
+func on_damage_take(damage: float) -> void:
+	life_component.take_damage(damage)
+
+func on_death() -> void:
+	get_tree().reload_current_scene()
